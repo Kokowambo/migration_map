@@ -2,94 +2,116 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mapping the Invisible</title>
+  <title>Migration Dashboard</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
       background-color: #f9f9f9;
-      color: #333;
     }
     h1, h2, h3 {
-      color: #222;
+      color: #333;
     }
     nav {
-      margin-bottom: 40px;
-      background-color: #e6e6e6;
-      padding: 10px;
-      border-radius: 5px;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      padding: 10px 0;
+      z-index: 1000;
     }
     nav a {
-      margin-right: 20px;
+      margin: 0 15px;
       text-decoration: none;
+      color: #007acc;
       font-weight: bold;
-      color: #00558c;
     }
     section {
       margin-bottom: 60px;
+    }
+    iframe {
+      border: none;
+      margin-bottom: 40px;
+    }
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    .flex-item {
+      flex: 1;
+      min-width: 300px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Mapping the Invisible: Migrant Deaths at Sea</h1>
-  <p>This interactive dashboard and report explores the spatial patterns of migrant deaths in the Mediterranean using openly available data and geospatial analysis techniques. The aim is to go beyond the numbers and highlight the human cost of migration.</p>
+  <h1>Mapping the Invisible: Missing and Dead Migrants</h1>
 
   <nav>
+    <a href="#overview">Overview</a>
     <a href="#motivation">Motivation</a>
-    <a href="#source">Data Source</a>
+    <a href="#data">Data Source</a>
+    <a href="#maps">Maps</a>
+    <a href="#clusters">Clustering</a>
     <a href="#evaluation">Evaluation</a>
     <a href="#conclusion">Conclusion</a>
-    <a href="#limitations">Limitations</a>
   </nav>
+
+  <section id="overview">
+    <h2>Overview</h2>
+    <p>This dashboard visualizes migrant deaths and disappearances along migration routes, focusing on the Mediterranean and global perspectives. The aim is to uncover spatial patterns and support humanitarian insights using interactive maps and spatial analysis methods.</p>
+  </section>
 
   <section id="motivation">
     <h2>Motivation</h2>
-    <p>In Vienna, anti-migrant slogans often dominate public space during election campaigns. But behind every statistic are real people – families, children, individuals displaced by war, persecution or disaster. No one risks their life at sea unless the alternative is worse.</p>
-    <p>This project aims to shift the focus from statistics back to people. By visualising where migrant deaths occur and using geospatial methods to understand patterns, we want to raise awareness and encourage data-informed public debate.</p>
+    <p>In Vienna, political campaigns often dominate public spaces, frequently with divisive, anti-migrant slogans. Yet behind these slogans are real people displaced by war, persecution, poverty, or climate disasters. No one willingly risks their life at sea unless the alternative is worse. This project aims to shift the focus back to the human cost of migration—through data, maps, and critical reflection.</p>
   </section>
 
-  <section id="source">
+  <section id="data">
     <h2>Data Source</h2>
-    <h3>The Organisation</h3>
-    <ul>
-      <li><strong>Organisation:</strong> International Organization for Migration (IOM)</li>
-      <li><strong>Initiative:</strong> Missing Migrants Project (est. 2014)</li>
-      <li><strong>Objective:</strong> Document deaths and disappearances of people during migration worldwide</li>
-      <li><strong>Motivation:</strong> Raise awareness, inform policy, and improve protection</li>
-    </ul>
+    <p>The data is provided by the International Organization for Migration (IOM) through the Missing Migrants Project. It documents deaths and disappearances during migration worldwide, including time, location, demographics, and cause of death. The dataset spans from 2014 to the present and is continuously updated by NGOs, media, and official sources.</p>
+  </section>
 
-    <h3>The Dataset</h3>
-    <ul>
-      <li><strong>Time Span:</strong> 2014–2025 (ongoing)</li>
-      <li><strong>Data Type:</strong> Point data including location, date, number of dead/missing/survivors, and cause of death</li>
-      <li><strong>Updates:</strong> Continuous updates from NGOs, official sources and media</li>
-      <li><strong>Limitations:</strong> Many missing fields (e.g. origin, gender, age); underreporting likely</li>
-    </ul>
+  <section id="maps">
+    <h2>Heatmaps of Incidents</h2>
+    <h3>Global Heatmap of Missing and Dead Migrants</h3>
+    <iframe src="map1_heatmap_world.html" width="100%" height="600px"></iframe>
+
+    <h3>Mediterranean Heatmap of Missing and Dead Migrants</h3>
+    <iframe src="map2_heatmap_mediterranean.html" width="100%" height="600px"></iframe>
+
+    <h3>Average Incident Locations by Month and Year</h3>
+    <iframe src="map3_avg_locations_combined.html" width="100%" height="600px"></iframe>
+  </section>
+
+  <section id="clusters">
+    <h2>Clustering of Mediterranean Incidents</h2>
+    <div class="flex-container">
+      <div class="flex-item">
+        <h3 style="text-align: center;">Elbow Method</h3>
+        <img src="elbow_cluster.png" alt="Elbow Chart" width="100%">
+      </div>
+      <div class="flex-item">
+        <h3 style="text-align: center;">KMeans Clustering (k=3)</h3>
+        <iframe src="map4_kmeans.html" width="100%" height="400px"></iframe>
+      </div>
+      <div class="flex-item">
+        <h3 style="text-align: center;">DBSCAN Clustering</h3>
+        <iframe src="map5_dbscan.html" width="100%" height="400px"></iframe>
+      </div>
+    </div>
   </section>
 
   <section id="evaluation">
-    <h2>Evaluation of Patterns</h2>
-    <p>We applied various spatial techniques – heatmaps, clustering, and spatial autocorrelation – to understand where and how migrant deaths concentrate. Heatmaps revealed intensity hotspots, KMeans and DBSCAN clustering showed spatial groupings of incidents, and LISA highlighted statistically significant clusters.</p>
-    <p>What does this mean? Migrant deaths are not random. They follow dangerous sea routes, often shaped by border policies, geography, and smuggling networks. These tools help make sense of tragedy and can guide policy to prevent future loss of life.</p>
+    <h2>Evaluation & Interpretation</h2>
+    <p>Our spatial techniques confirmed the intensity and structure of fatal migration events. The clustering results reveal clear migration corridors and highlight high-risk areas, especially in the Central Mediterranean. These patterns suggest systemic routes and dangers that are consistent over time, reinforcing the urgency for targeted humanitarian intervention.</p>
   </section>
 
   <section id="conclusion">
     <h2>Conclusion</h2>
-    <p>Migrant deaths at sea represent not just a data problem, but a humanitarian one. Through this dashboard, we hope to refocus attention on the individual lives behind the statistics – and to call for safer, legal migration pathways.</p>
-    <p>Geospatial analysis gave us a powerful toolset, but the purpose remains human: remembrance, awareness, and a demand for action.</p>
-  </section>
-
-  <section id="limitations">
-    <h2>Data Limitations & Future Work</h2>
-    <ul>
-      <li>Incomplete data on origin, cause, or gender in many cases</li>
-      <li>No data on attempted crossings – the full risk is unknown</li>
-      <li>Temporal inconsistencies due to delays in reporting</li>
-    </ul>
-    <p>Future steps could include linking these patterns to policy events or weather data, and expanding analysis using regression models or machine learning.</p>
+    <p>Migrant deaths are not isolated tragedies, but part of broader systemic patterns. Our data analysis tools help make these patterns visible. However, the human story behind each data point must remain central: families, hopes, and the pursuit of safety. Through this dashboard, we aim to contribute to awareness and empathy—by making visible what is often invisible.</p>
   </section>
 
 </body>
 </html>
-
