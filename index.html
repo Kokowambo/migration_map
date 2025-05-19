@@ -62,44 +62,51 @@
 
   <section id="overview">
     <h2>Overview</h2>
-    <p>This dashboard visualizes migrant deaths and disappearances along migration routes, focusing on the Mediterranean and global perspectives. The aim is to uncover spatial patterns and support humanitarian insights using interactive maps and spatial analysis methods.</p>
+    <p>This dashboard visualizes migrant deaths and disappearances along migration routes. It focuses on the Mediterranean and global perspectives. The aim is to uncover spatial patterns and support humanitarian insights using interactive maps and spatial analysis methods.</p>
   </section>
 
   <section id="motivation">
     <h2>Motivation</h2>
-    <p>In Vienna, political campaigns often dominate public spaces, frequently with divisive, anti-migrant slogans. Yet behind these slogans are real people displaced by war, persecution, poverty, or climate disasters. No one willingly risks their life at sea unless the alternative is worse. This project aims to shift the focus back to the human cost of migration—through data, maps, and critical reflection.</p>
+    <p>In Vienna, political campaigns often dominate public spaces. Many of them use divisive and anti-migrant slogans. Behind these slogans are real people who have been displaced by war, persecution, poverty or climate disasters. In our opinion, people do not risk their life at sea unless the situation they leave behind is even worse. This project aims to shift the focus back to the human cost of migration by using data, maps and thoughtful reflection.</p>
   </section>
 
   <section id="data">
     <h2>Data Source</h2>
-    <p>The data is provided by the International Organization for Migration (IOM) through the Missing Migrants Project. It documents deaths and disappearances during migration worldwide, including time, location, demographics, and cause of death. The dataset spans from 2014 to the present and is continuously updated by NGOs, media, and official sources.</p>
+    <p>The data is provided by the International Organization for Migration (IOM) through the Missing Migrants Project. It documents deaths and disappearances during migration worldwide. The dataset includes time, location, demographics and cause of death. It spans from 2014 to the present and is continuously updated by NGOs, media and official sources.</p>
   </section>
 
   <section id="maps">
     <h2>Heatmaps of Incidents</h2>
     <h3>Global Heatmap of Missing and Dead Migrants</h3>
+    <p>This map provides an overview of where migrant deaths have occurred around the world. It highlights major global routes where fatalities have been documented and helps identify patterns beyond the Mediterranean region.</p>
     <iframe src="map1_heatmap_world.html" width="100%" height="600px"></iframe>
 
     <h3>Mediterranean Heatmap of Missing and Dead Migrants</h3>
+    <p>This map focuses on the Mediterranean Sea, which is one of the most dangerous migration routes. The heatmap shows where the highest concentrations of fatal incidents occurred in this region.</p>
     <iframe src="map2_heatmap_mediterranean.html" width="100%" height="600px"></iframe>
 
     <h3>Average Incident Locations by Month and Year</h3>
+    <p>This visualization shows the average locations of incidents by month and by year. It helps to identify seasonal trends and how migration patterns may have shifted over time.</p>
     <iframe src="map3_avg_locations_combined.html" width="100%" height="600px"></iframe>
   </section>
 
   <section id="clusters">
     <h2>Clustering of Mediterranean Incidents</h2>
+    <p>Clustering methods help us understand how migration-related deaths are grouped spatially. These methods reveal concentrations of risk and allow us to compare different algorithmic approaches.</p>
     <div class="flex-container">
       <div class="flex-item">
         <h3 style="text-align: center;">Elbow Method</h3>
+        <p>The elbow method helps determine the optimal number of clusters for KMeans. It plots the within-cluster sum of squares to find a balance between simplicity and accuracy.</p>
         <img src="elbow_cluster.png" alt="Elbow Chart" width="100%">
       </div>
       <div class="flex-item">
         <h3 style="text-align: center;">KMeans Clustering (k=3)</h3>
+        <p>This map shows the result of applying KMeans clustering with three clusters. It identifies major hotspots where incidents are spatially grouped.</p>
         <iframe src="map4_kmeans.html" width="100%" height="400px"></iframe>
       </div>
       <div class="flex-item">
         <h3 style="text-align: center;">DBSCAN Clustering</h3>
+        <p>The DBSCAN method groups incidents based on spatial density. It is useful for detecting irregular cluster shapes and identifying noise or outliers.</p>
         <iframe src="map5_dbscan.html" width="100%" height="400px"></iframe>
       </div>
     </div>
@@ -107,25 +114,26 @@
 
   <section id="kde">
     <h2>Kernel Density Estimation (KDE)</h2>
-    <p>The KDE map visualizes areas with a high concentration of migrant death incidents by estimating spatial density. This method emphasizes regions of intense risk and helps highlight critical zones in the Mediterranean Sea.</p>
+    <p>The KDE map visualizes areas with a high concentration of migrant death incidents. It uses a density estimation method that helps to highlight critical zones in the Mediterranean Sea where risks are especially high.</p>
     <iframe src="map6_kde_map.html" width="100%" height="600px"></iframe>
   </section>
 
   <section id="lisa">
     <h2>Local Indicators of Spatial Association (LISA)</h2>
-    <p>LISA analysis identifies statistically significant clusters and spatial outliers. It provides insights into the spatial autocorrelation of incident locations—helping to understand whether high or low values cluster together more than would be expected by chance.</p>
+    <p>LISA analysis shows statistically significant clusters and spatial outliers. It gives insights into the spatial relationship of incident locations. The goal is to understand whether high or low values occur near each other more often than expected by chance.</p>
     <iframe src="map7_lisa.html" width="100%" height="600px"></iframe>
   </section>
 
   <section id="evaluation">
-    <h2>Evaluation & Interpretation</h2>
-    <p>Our spatial techniques confirmed the intensity and structure of fatal migration events. The clustering results reveal clear migration corridors and highlight high-risk areas, especially in the Central Mediterranean. These patterns suggest systemic routes and dangers that are consistent over time, reinforcing the urgency for targeted humanitarian intervention.</p>
+    <h2>Evaluation and Interpretation</h2>
+    <p>Our spatial techniques confirmed the intensity and structure of fatal migration events. The clustering results reveal clear migration corridors and highlight high-risk areas, especially in the Central Mediterranean. These patterns suggest that certain routes are consistently more dangerous, which underlines the need for focused humanitarian responses.</p>
   </section>
 
   <section id="conclusion">
     <h2>Conclusion</h2>
-    <p>Migrant deaths are not isolated tragedies, but part of broader systemic patterns. Our data analysis tools help make these patterns visible. However, the human story behind each data point must remain central: families, hopes, and the pursuit of safety. Through this dashboard, we aim to contribute to awareness and empathy—by making visible what is often invisible.</p>
+    <p>Migrant deaths are not isolated events. They reflect broader and persistent problems. Our data analysis tools help to make these patterns visible. At the same time, it is important to remember that each data point represents a person with a story, a family and a hope for a better future. We hope this dashboard contributes to understanding and compassion by showing what is often hidden from view.</p>
   </section>
 
 </body>
 </html>
+
